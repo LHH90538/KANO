@@ -1,7 +1,7 @@
 python train.py \
     --data_path ./data/bbbp.csv \
     --dataset_type classification \
-    --epochs 30 \
+    --epochs 25 \
     --num_runs 2 \
     --gpu 0 \
     --batch_size 256 \
