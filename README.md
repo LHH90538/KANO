@@ -30,7 +30,8 @@ Original License: [MIT](https://github.com/HICAI-ZJU/KANO/blob/main/LICENSE).
 
 To run our code, please install dependency packages.
 ```
-pip install requirements.txt
+cd KANO/
+pip install -r requirements.txt
 ```
 
 
