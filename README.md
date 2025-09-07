@@ -4,22 +4,14 @@
 
 # Knowledge graph-enhanced molecular contrastive learning with functional prompt
 
-This repository is the official implementation of **KANO**, which is model proposed in a paper: [**Knowledge graph-enhanced molecular contrastive learning with functional prompt**](https://www.nature.com/articles/s42256-023-00654-0). 
+This repository is a fork of [HICAI-ZJU/KANO](https://github.com/HICAI-ZJU/KANO), and modified by [LHH90538](https://github.com/LHH90538).  
 
+**Modifications include:**  
+- Added `requirements.txt` for dependency management.  
+- Adjusted training epochs and number in `finetune.sh`.  
+- Simplified the `README.md`
 
-
-
-# 🔔 News 
-
-- **`2024-2` We've released [ChatCell](https://huggingface.co/papers/2402.08303), a new paradigm that leverages natural language to make single-cell analysis more accessible and intuitive. Please visit our [homepage](https://www.zjukg.org/project/ChatCell) and [Github page](https://github.com/zjunlp/ChatCell) for more information.**
-- **`2024-1` Our paper [Domain-Agnostic Molecular Generation with Chemical Feedback](https://github.com/zjunlp/MolGen) is accepted by ICLR 2024.**
-- **`2024-1` Our paper [Mol-Instructions: A Large-Scale Biomolecular Instruction Dataset for Large Language Models](https://github.com/zjunlp/Mol-Instructions) is accepted by ICLR 2024.**
-- **`2023-6` We release [Mol-Instructions](https://github.com/zjunlp/Mol-Instructions), a large-scale biomolecule instruction dataset for large language models.**
-- **`2023-3` We propose [MolGen](https://github.com/zjunlp/MolGen), a robust pre-trained molecular generative model with self-feedback.**
-
-
-# Brief introduction
-We propose a **K**nowledge graph-enhanced molecular contr**A**stive learning with fu**N**ctional pr**O**mpt (**KANO**), exploiting fundamental domain knowledge in both pre-training and fine-tuning.
+Original License: [MIT](https://github.com/HICAI-ZJU/KANO/blob/main/LICENSE).
 
 
 ## 🤖 Model
@@ -38,54 +30,15 @@ We propose a **K**nowledge graph-enhanced molecular contr**A**stive learning wit
 
 To run our code, please install dependency packages.
 ```
-python          3.7
-torch           1.13.1
-rdkit           2018.09.3
-numpy           1.20.3
-gensim          4.2.0
-nltk            3.4.5
-owl2vec-star    0.2.1
-Owlready2       0.37
-torch-scatter   2.0.9
+pip install requirements.txt
 ```
 
-# 📚 Overview
-
-This project mainly contains the following parts.
-
-```
-├── chemprop                        # molecular graph preprocessing, data splitting, loss function and graph encoder
-├── data                            # sore the molecular datasets for pre-training and fine-tuning
-│   ├── bace.csv                    # downstream dataset BACE
-│   ├── bbbp.csv                    # downstream dataset BBBP
-│   ├── clintox.csv                 # downstream dataset ClinTox
-│   ├── esol.csv                    # downstream dataset ESOL
-│   ├── freesolv.csv                # downstream dataset FreeSolv
-│   ├── hiv.csv                     # downstream dataset HIV
-│   ├── lipo.csv                    # downstream dataset Lipophilicity
-│   ├── muv.csv                     # downstream dataset MUV
-│   ├── qm7.csv                     # downstream dataset QM7
-│   ├── qm8.csv                     # downstream dataset QM8
-│   ├── qm9.csv                     # downstream dataset QM9
-│   ├── sider.csv                   # downstream dataset SIDER
-│   ├── tox21.csv                   # downstream dataset Tox21
-│   ├── toxcast.csv                 # downstream dataset ToxCast
-│   └── zinc15_250K.csv             # pre-train dataset ZINC250K
-├── dumped                          # store the training log and checkpoints of the model 
-│   └── pretrained_graph_encoder    # the pre-trained model
-├── finetune.sh                     # conduct fine-tuning
-├── initial                         # store the embeddings of ElementKG, and preprocess it for the model
-├── KGembedding                     # store ElementKG, and get the embeddings of eneities and relations in ElementKG
-├── pretrain.py                     # conduct pre-training
-└── train.py                        # training code for fine-tuning
-
-```
 
 # 🚀 Quick start
 
 If you want to use our pre-trained model directly for molecular property prediction, please run the following command:
 ```sh
->> bash finetune.sh
+bash finetune.sh
 ```
 
 | Parameter | Description | Default Value |
